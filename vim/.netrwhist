@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/mathias9807/Projekt'
+let g:netrw_dirhist_0='/home/mathias9807/Projekt/benders-gamla-kundportal'
+let g:netrw_dirhist_9='/home/mathias9807/Projekt/benders-gamla-kundportal/web'
+let g:netrw_dirhist_8='/home/mathias9807/Projekt/benders-gamla-kundportal/web/app'
+let g:netrw_dirhist_7='/home/mathias9807/Projekt/benders-gamla-kundportal/web/app/themes'
+let g:netrw_dirhist_6='/home/mathias9807/Projekt/benders-gamla-kundportal/web/app/themes/benders-theme'
+let g:netrw_dirhist_5='/home/mathias9807/Projekt/benders-gamla-kundportal/web/app/themes/benders-theme/inc'
+let g:netrw_dirhist_4='/home/mathias9807/Projekt/benders-gamla-kundportal/web/app/themes/benders-theme'
+let g:netrw_dirhist_3='/home/mathias9807/Projekt/benders-gamla-kundportal/web/app/themes/benders-theme/template-parts'
+let g:netrw_dirhist_2='/home/mathias9807/Projekt/benders-gamla-kundportal/web/app/themes/benders-theme'
