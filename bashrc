@@ -33,7 +33,7 @@ alias gps="git push"
 
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
-    source $HOME/.bash-git-prompt/gitprompt.sh
+    source $HOME/.repos/pasoconfig/bash-git-prompt/gitprompt.sh
 fi
 
 export EDITOR=vim
@@ -43,8 +43,6 @@ export LESS=-ARrSs
 
 # export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
 # source <(kubectl completion bash)
-
-export PATH=$PATH:$HOME/.cargo/bin
 
 export QT_LOGGING_RULES='*=false'
 
