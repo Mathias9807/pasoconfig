@@ -39,6 +39,8 @@ fi
 export EDITOR=vim
 alias vim=vimx
 
+alias acq=ack -Q
+
 export LESS=-ARrSs
 
 # export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
