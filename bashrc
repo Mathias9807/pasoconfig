@@ -39,7 +39,7 @@ fi
 export EDITOR=vim
 alias vim=vimx
 
-alias acq=ack -Q
+alias acq="ack -Q"
 
 export LESS=-ARrSs
 
