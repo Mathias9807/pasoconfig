@@ -1,0 +1,9 @@
+[submodule "bash-git-prompt"]
+	path = bash-git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt
+[submodule "vim-sleuth"]
+	path = vim/bundle/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule "ale"]
+	path = vim/bundle/ale
+	url = https://github.com/dense-analysis/ale
