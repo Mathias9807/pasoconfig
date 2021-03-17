@@ -9,6 +9,7 @@ set nosmartindent
 filetype indent on
 set noexpandtab
 set modeline
+set hlsearch
 
 " set colorcolumn=81
 
