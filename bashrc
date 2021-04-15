@@ -37,7 +37,7 @@ if [ -f "$HOME/.repos/pasoconfig/bash-git-prompt/gitprompt.sh" ]; then
 fi
 
 export EDITOR=vim
-alias vim=vimx
+if [[ -x "$(command -v vimx)" ]]; then alias vim='vimx'; fi
 
 alias acq="ack -Q"
 
