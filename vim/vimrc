@@ -10,6 +10,7 @@ filetype indent on
 set noexpandtab
 set modeline
 set hlsearch
+set wrap linebreak breakindent
 
 " set colorcolumn=81
 
@@ -22,6 +23,7 @@ autocmd Filetype yaml setlocal ts=2 softtabstop=2 shiftwidth=2 expandtab
 
 set tags+=~/.vim/tags/opengl
 set tags+=**
+set wildignore+=**/node_modules/**
 
 " Open definition of function
 map <F5> <C-w><C-]><C-w>T
@@ -86,5 +88,9 @@ let g:ale_hover_cursor = 1
 let g:ale_python_flake8_options = "--ignore=E501,E302"
 map <PageUp> :labove<CR>
 map <PageDown> :lbelow<CR>
+
+" Redraw after saving files
+autocmd BufWritePost * redraw!
+autocmd FileWritePost * redraw!
 
 execute pathogen#infect()
