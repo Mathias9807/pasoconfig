@@ -89,8 +89,7 @@ let g:ale_python_flake8_options = "--ignore=E501,E302"
 map <PageUp> :labove<CR>
 map <PageDown> :lbelow<CR>
 
-" Redraw after saving files
-autocmd BufWritePost * redraw!
-autocmd FileWritePost * redraw!
+" Open NERDTree with tab
+map <Tab> :NERDTreeToggle<CR>
 
 execute pathogen#infect()
