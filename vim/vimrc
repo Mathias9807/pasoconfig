@@ -91,5 +91,6 @@ map <PageDown> :lbelow<CR>
 
 " Open NERDTree with tab
 map <Tab> :NERDTreeToggle<CR>
+let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
 execute pathogen#infect()

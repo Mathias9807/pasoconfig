@@ -20,6 +20,7 @@ alias "s"="ls"
 alias "gut"="git"
 
 alias gs="git status"
+alias gsh="git show"
 alias ga="git add"
 alias gp="git add -p"
 alias gd="git diff"
