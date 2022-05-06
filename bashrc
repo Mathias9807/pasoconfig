@@ -42,7 +42,7 @@ if [[ -x "$(command -v vimx)" ]]; then alias vim='vimx'; fi
 
 alias acq="ack -Q"
 
-export LESS=-ARrSs
+export LESS=-ARSs
 
 # export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
 # source <(kubectl completion bash)
