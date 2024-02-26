@@ -17,13 +17,14 @@ set wrap linebreak breakindent
 au BufRead,BufNewFile *.vue set filetype=vue
 autocmd Filetype html,vue setlocal syntax=html ts=2 softtabstop=2 shiftwidth=2 expandtab colorcolumn=9999
 autocmd Filetype php setlocal ts=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd Filetype python setlocal ts=8 softtabstop=0 shiftwidth=8 noexpandtab
+autocmd Filetype python setlocal ts=4 softtabstop=0 shiftwidth=4 noexpandtab
 autocmd Filetype javascript setlocal ts=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype yaml setlocal ts=2 softtabstop=2 shiftwidth=2 expandtab
 
 set tags+=~/.vim/tags/opengl
 set tags+=**
-set wildignore+=**/node_modules/**
+set wildignore+=**/node_modules
+set wildignore+=vendor
 
 " Open definition of function
 map <F5> <C-w><C-]><C-w>T
@@ -54,6 +55,15 @@ map =D aΔ<ESC>
 map =P aπ<ESC>
 map =R aρ<ESC>
 
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+" Close quickfix
+" nmap <c-q> :ccl<CR>
+
 " Add closing bracket when opening bracket is typed
 " inoremap ( ()<Left>
 " inoremap { {}<Left>
@@ -64,9 +74,13 @@ set nofoldenable
 vnoremap <Space> zf
 
 set mouse=a
-set ttymouse=xterm
 set ballooneval
 set balloonevalterm
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
 
 set path=.,**,
 set wildignore+=**/node_modules/**
@@ -85,12 +99,21 @@ command Ctags !ctags -R
 let g:ale_completion_enabled = 1
 let g:ale_set_balloons = 1
 let g:ale_hover_cursor = 1
-let g:ale_python_flake8_options = "--ignore=E501,E302"
+let g:ale_linters = {'c': ['ccls'], 'go': ['gofmt', 'golint', 'govet', 'gopls'], 'python': ['python-language-server', 'pyls'], 'php': ['phpactor']}
+let g:ale_python_flake8_options = "--ignore=E501,E302,E225,E201,E303,E722,E265,E116,F405,W191,W391"
+let g:ale_completion_autoimport = 1
+let g:ale_virtualtext_cursor = 2
 map <PageUp> :labove<CR>
 map <PageDown> :lbelow<CR>
 
 " Open NERDTree with tab
 map <Tab> :NERDTreeToggle<CR>
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+
+" Control-T config
+map <C-t> :CommandT<CR>
+
+" Ack config
+map <C-f> :Ack!<Space>
 
 execute pathogen#infect()
