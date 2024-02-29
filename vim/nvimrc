@@ -73,14 +73,14 @@ set foldmethod=indent
 set nofoldenable
 vnoremap <Space> zf
 
-set mouse=a
-set ballooneval
-set balloonevalterm
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
-end
+" set mouse=a
+" set ballooneval
+" set balloonevalterm
+" if has("mouse_sgr")
+"     set ttymouse=sgr
+" else
+"     set ttymouse=xterm2
+" end
 
 set path=.,**,
 set wildignore+=**/node_modules/**
@@ -112,6 +112,7 @@ map <Tab> :NERDTreeToggle<CR>
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
 " Control-T config
+let g:CommandTPreferredImplementation='lua'
 let g:CommandTEncoding='utf-8'
 map <C-t> :CommandT<CR>
 
@@ -119,3 +120,6 @@ map <C-t> :CommandT<CR>
 map <C-f> :Ack!<Space>
 
 execute pathogen#infect()
+
+source ~/.vim/nvimrc.lua
+
