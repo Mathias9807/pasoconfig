@@ -25,6 +25,7 @@ set tags+=~/.vim/tags/opengl
 set tags+=**
 set wildignore+=**/node_modules
 set wildignore+=vendor
+set wildignore+=build
 
 " Open definition of function
 map <F5> <C-w><C-]><C-w>T
@@ -81,6 +82,7 @@ vnoremap <Space> zf
 " else
 "     set ttymouse=xterm2
 " end
+set mousemoveevent
 
 set path=.,**,
 set wildignore+=**/node_modules/**
@@ -96,16 +98,24 @@ command Ctags !ctags -R
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 " let g:syntastic_javascript_checkers = ['eslint']
+" let g:ale_enabled = 1
 let g:ale_completion_enabled = 1
 let g:ale_set_balloons = 1
 let g:ale_hover_cursor = 1
-let g:ale_linters = {'c': ['ccls'], 'go': ['gofmt', 'golint', 'govet', 'gopls'], 'python': ['python-language-server', 'pyls'], 'php': ['phpactor'], 'vue': ['vls']}
+let g:ale_linters = {'c': ['ccls'], 'go': ['gofmt', 'golint', 'govet', 'gopls'], 'python': ['python-language-server', 'pyls'], 'php': ['phpactor'], 'vue': ['volar']}
 let g:ale_python_flake8_options = "--ignore=E501,E302,E225,E201,E303,E722,E265,E116,F405,W191,W391"
 let g:ale_completion_autoimport = 1
 let g:ale_virtualtext_cursor = 2
-nmap gd :ALEGoToDefinition<Space>-tab<CR>
+" let g:ale_virtualtext_cursor = 'disabled'
+let g:ale_floating_preview = 1
+" let g:ale_hover_to_preview = 0
+" let g:ale_detail_to_floating_preview = 1
+" let g:ale_cursor_detail = 1
+let g:ale_popup_menu_enabled = 1
+" nmap gd :ALEGoToDefinition<Space>-tab<CR>
 map <PageUp> :labove<CR>
 map <PageDown> :lbelow<CR>
+" nnoremenu PopUp.RenameSymbol :ALERename<CR> " Add rename option to right-click menu
 
 " Open NERDTree with tab
 map <Tab> :NERDTreeToggle<CR>
@@ -114,9 +124,11 @@ let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 " Control-T config
 let g:CommandTPreferredImplementation='lua'
 let g:CommandTEncoding='utf-8'
+let g:CommandTWildIgnore='node_modules'
 map <C-t> :CommandT<CR>
 
 " Ack config
+let g:ack_default_options = " -s -H --nopager --nocolor --nogroup --column"
 map <C-f> :Ack!<Space>
 
 execute pathogen#infect()
