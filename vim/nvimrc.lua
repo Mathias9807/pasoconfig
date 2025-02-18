@@ -179,3 +179,5 @@ require("eagle").setup({
 -- override the default values found in config.lua
 })
 
+require('mini.completion').setup()
+
