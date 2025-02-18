@@ -133,5 +133,14 @@ map <C-f> :Ack!<Space>
 
 execute pathogen#infect()
 
+call plug#begin()
+
+" List your plugins here
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+
+call plug#end()
+
 source ~/.vim/nvimrc.lua
 

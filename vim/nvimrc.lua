@@ -80,16 +80,61 @@ require('wincent.commandt').setup({
 vim.o.mousemoveevent = true
 
 -- Setup language servers.
+require("mason").setup()
+require("mason-lspconfig").setup()
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {}
-lspconfig.tsserver.setup {}
+-- lspconfig.pylsp.setup {
+-- 	on_attach = custom_attach,
+-- 	settings = {
+-- 		pylsp = {
+-- 			plugins = {
+-- 				-- formatter options
+-- 				black = { enabled = true },
+-- 				autopep8 = { enabled = true },
+-- 				yapf = { enabled = false },
+-- 				-- linter options
+-- 				pylint = { enabled = false, executable = "pylint" },
+-- 				pyflakes = { enabled = false },
+-- 				pycodestyle = { enabled = false },
+-- 				-- type checker
+-- 				pylsp_mypy = { enabled = true },
+-- 				-- auto-completion options
+-- 				jedi_completion = { fuzzy = true },
+-- 				-- import sorting
+-- 				pyls_isort = { enabled = true },
+-- 			},
+-- 		},
+-- 	},
+-- 	flags = {
+-- 	    debounce_text_changes = 200,
+-- 	},
+-- 	capabilities = capabilities,
+-- }
+require'lspconfig'.pylsp.setup{
+	settings = {
+		pylsp = {
+			plugins = {
+				pycodestyle = {
+					ignore = {'W391', 'E501', 'E302', 'E305', 'E225', 'E201', 'E303', 'E722', 'E265', 'E116', 'E226', 'F405', 'W191', 'W391', 'E306', 'E741'},
+					maxLineLength = 100
+				}
+			}
+		}
+	}
+}
+
+-- lspconfig.tsserver.setup {}
 lspconfig.volar.setup {}
-lspconfig.clangd.setup {}
+lspconfig.clangd.setup {
+	cmd = {
+		"clangd", "--header-insertion=never",
+	},
+}
 lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ['rust-analyzer'] = {},
-  },
+	-- Server-specific settings. See `:help lspconfig-setup`
+	settings = {
+		['rust-analyzer'] = {},
+	},
 }
 
 -- Global mappings.

@@ -114,6 +114,7 @@ let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 " Control-T config
 let g:CommandTEncoding='utf-8'
 map <C-t> :CommandT<CR>
+let g:CommandTAcceptSelectionCommand = "CommandTOpen tabe"
 
 " Ack config
 map <C-f> :Ack!<Space>
