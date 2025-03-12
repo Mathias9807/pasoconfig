@@ -140,6 +140,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'echasnovski/mini.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 
 call plug#end()
 

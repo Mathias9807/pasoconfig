@@ -110,7 +110,7 @@ local lspconfig = require('lspconfig')
 -- 	},
 -- 	capabilities = capabilities,
 -- }
-require'lspconfig'.pylsp.setup{
+lspconfig.pylsp.setup{
 	settings = {
 		pylsp = {
 			plugins = {
@@ -136,6 +136,22 @@ lspconfig.rust_analyzer.setup {
 		['rust-analyzer'] = {},
 	},
 }
+lspconfig.ts_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    plugins = { -- I think this was my breakthrough that made it work
+      {
+        name = "@vue/typescript-plugin",
+        location = "/usr/local/lib/node_modules/@vue/language-server",
+        languages = { "vue" },
+      },
+    },
+  },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+}
+
+lspconfig.volar.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -179,5 +195,14 @@ require("eagle").setup({
 -- override the default values found in config.lua
 })
 
+require('mini.snippets').setup()
+require('mini.icons').setup()
 require('mini.completion').setup()
+vim.cmd([[au FileType CommandTPrompt lua vim.b.minicompletion_disable = true]])
 
+require('lualine').setup {
+	options = {
+		icons_enabled = true,
+		theme = 'gruvbox',
+	}
+}
