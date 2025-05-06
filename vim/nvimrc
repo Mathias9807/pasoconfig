@@ -11,6 +11,7 @@ set noexpandtab
 set modeline
 set hlsearch
 set wrap linebreak breakindent
+set undofile
 
 " set colorcolumn=81
 
@@ -61,6 +62,8 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+nnoremap <C-Left> :tabp<CR>
+nnoremap <C-Right> :tabn<CR>
 
 " Close quickfix
 " nmap <c-q> :ccl<CR>
