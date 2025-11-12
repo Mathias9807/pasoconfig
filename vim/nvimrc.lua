@@ -82,7 +82,6 @@ vim.o.mousemoveevent = true
 -- Setup language servers.
 require("mason").setup()
 require("mason-lspconfig").setup()
-local lspconfig = require('lspconfig')
 -- lspconfig.pylsp.setup {
 -- 	on_attach = custom_attach,
 -- 	settings = {
@@ -110,7 +109,7 @@ local lspconfig = require('lspconfig')
 -- 	},
 -- 	capabilities = capabilities,
 -- }
-lspconfig.pylsp.setup{
+vim.lsp.config('pylsp', {
 	settings = {
 		pylsp = {
 			plugins = {
@@ -121,22 +120,22 @@ lspconfig.pylsp.setup{
 			}
 		}
 	}
-}
+})
 
--- lspconfig.tsserver.setup {}
-lspconfig.volar.setup {}
-lspconfig.clangd.setup {
+-- vim.lsp.enable('tsserver')
+vim.lsp.enable('vue_ls')
+vim.lsp.config('clangd', {
 	cmd = {
 		"clangd", "--header-insertion=never",
 	},
-}
-lspconfig.rust_analyzer.setup {
+})
+vim.lsp.config('rust_analyzer', {
 	-- Server-specific settings. See `:help lspconfig-setup`
 	settings = {
 		['rust-analyzer'] = {},
 	},
-}
-lspconfig.ts_ls.setup {
+})
+vim.lsp.config('ts_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
   init_options = {
@@ -149,9 +148,7 @@ lspconfig.ts_ls.setup {
     },
   },
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-}
-
-lspconfig.volar.setup {}
+})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -206,3 +203,5 @@ require('lualine').setup {
 		theme = 'gruvbox',
 	}
 }
+
+require('flygrep').setup()
